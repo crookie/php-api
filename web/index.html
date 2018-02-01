@@ -94,7 +94,7 @@
     function getList(page) {
         $('#loading').show();
         API.post({
-            api: 'http://localhost:909/api/Temp/getList?pageNo='+page+'&pageSize=8&lang=cn', // ?a=get_users&uid=10001
+            api: 'http://www.youjianwu.com/api/index.php?g=Web&c=Temp&o=getList', // ?a=get_users&uid=10001
             param: {pageNo:page,pageSize:8,lang:'cn'}
         }).then(function(res) {
             $("#tab3").pullToRefreshDone();
