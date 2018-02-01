@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery WeUI</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="./lib/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.css">
+    <link rel="stylesheet" href="./demos/css/demos.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">用户名</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="userName" type="text" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">密码</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="password" type="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <label for="weuiAgree" class="weui-agree">
+            <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox">
+            <span class="weui-agree__text">
+                阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+            </span>
+        </label>
+        <div class="weui-btn-area">
+            <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">确定</a>
+        </div>
+    </div>
+    <script src="./lib/jquery-2.1.4.js"></script>
+    <script src="./lib/fastclick.js"></script>
+    <script src="./lib/axios.min.js"></script>
+    <script src="./lib/qs.js"></script>
+    <script src="./js/jquery-weui.js"></script>
+    <script src="./js/util.js"></script>
+    <script>
+    $('#submit').on('click', function() {
+        login();
+    });
+    function login() {
+        API.post({
+            api: 'http://api.youjianwu.com/Guest/login',
+            param: { name: $.trim($('#userName').val()), password: $.trim($('#password').val()) }
+        }).then(function(res) {
+            if (res.statusCode === '000000') {
+                localStorage.setItem("auth", res.userInfo.auth);
+                delete res.userInfo.auth;
+                localStorage.setItem("user", JSON.stringify(res.userInfo));
+                let url = getQueryStringByName('returnurl') || 'index.html';
+                location.href = url;
+            } else {
+                alert(res.statusCode);
+            }
+        }, function(err) {
+            console.log(err);
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -30,17 +30,18 @@
         transformResponse: [
             function(data) {
                 if (data.statusCode === '120005') {
-                    var r = confirm('请重新登录~');
-                    r && API.post({
-                        api: 'http://api.youjianwu.com/Guest/login', // ?a=get_users&uid=10001
-                        param: { name: 'luobowen', password: 'abc12345' }
-                    }).then(function(res) {
-                        if (res.statusCode === '000000') {
-                            localStorage.setItem("auth", res.userInfo.auth);
-                            delete res.userInfo.auth;
-                            localStorage.setItem("user", JSON.stringify(res.userInfo));
-                        }
-                    });
+                    location.href ='login.html?returnurl='+location.href;
+                    // var r = confirm('请重新登录~');
+                    // r && API.post({
+                    //     api: 'http://api.youjianwu.com/Guest/login', // ?a=get_users&uid=10001
+                    //     param: { name: 'luobowen', password: 'abc12345' }
+                    // }).then(function(res) {
+                    //     if (res.statusCode === '000000') {
+                    //         localStorage.setItem("auth", res.userInfo.auth);
+                    //         delete res.userInfo.auth;
+                    //         localStorage.setItem("user", JSON.stringify(res.userInfo));
+                    //     }
+                    // });
 
 
                 }
@@ -104,6 +105,31 @@
     window.API = API;
 })();
 
+function getQueryStringByName(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    var context = "";
+    if (r != null)
+        context = r[2];
+    reg = null;
+    r = null;
+    return context == null || context == "" || context == "undefined" ? "" : context;
+}
+
+/*获取地址栏变量的值，会区分变量名的大小写*/
+function GetUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
+/*获取地址栏变更的值，会进行URI解码，用于获取中文参数值*/
+    function GetDecodeUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
 
 
 $(function() {
