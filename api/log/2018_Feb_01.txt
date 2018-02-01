@@ -1,0 +1,7 @@
+2018/Feb/01 09:00:14=>[code:12000;info:database error in:["42S22",1054,"Unknown column 'cn' in 'where clause'"];wrongFile:D:\phpStudy\WWW2\api\RTP\Module\DatabaseModule.class.php;wrongLine:262];
+2018/Feb/01 09:08:09=>[code:11002;info:error in lack of groupName;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:61];
+2018/Feb/01 09:41:28=>[code:11002;info:error in lack of groupName;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:61];
+2018/Feb/01 11:05:11=>[code:11002;info:error in lack of groupName;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:61];
+2018/Feb/01 11:05:54=>[code:11006;info:undefined operation or illegal operation name;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:120];
+2018/Feb/01 11:06:54=>[code:11006;info:undefined operation or illegal operation name;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:120];
+2018/Feb/01 13:37:46=>[code:11002;info:error in lack of groupName;wrongFile:D:\phpStudy\WWW2\api\RTP\Module\AutomaticallyModule.class.php;wrongLine:61];
