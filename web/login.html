@@ -37,7 +37,7 @@
         </span>
     </label>
     <div class="weui-btn-area">
-        <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">确定</a>
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">登 录</a>
     </div>
     <script src="./lib/jquery-2.1.4.js"></script>
     <script src="./lib/fastclick.js"></script>
@@ -50,6 +50,8 @@
         login();
     });
     function login() {
+        $("#submit").addClass('weui-btn_loading');
+        $("#submit").prepend('<i class="weui-loading"></i>')
         API.post({
             api: 'http://api.youjianwu.com/Guest/login',
             param: { name: $.trim($('#userName').val()), password: $.trim($('#password').val()) }
@@ -63,7 +65,11 @@
             } else {
                 alert(res.statusCode);
             }
+            $("#submit").removeClass('weui-btn_loading');
+            $("#submit .weui-loading").remove();
         }, function(err) {
+            $("#submit").removeClass('weui-btn_loading');
+            $("#submit .weui-loading").remove();
             console.log(err);
         })
     }
