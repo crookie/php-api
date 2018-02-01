@@ -32,7 +32,7 @@
                 if (data.statusCode === '120005') {
                     var r = confirm('请重新登录~');
                     r && API.post({
-                        api: 'http://localhost:909/api/Guest/login', // ?a=get_users&uid=10001
+                        api: 'http://www.youjianwu.com/api/index.php?g=Web&c=Guest&o=login', // ?a=get_users&uid=10001
                         param: { name: 'luobowen', password: 'abc12345' }
                     }).then(function(res) {
                         if (res.statusCode === '000000') {
