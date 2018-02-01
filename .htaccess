@@ -1,7 +1,7 @@
 ﻿RewriteEngine on
+RewriteBase /
 # 是否显示根目录下文件列表
 Options -Indexes
-RewriteBase /
 RewriteCond %{HTTP:Authorization} .
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ /404.html

@@ -8,7 +8,7 @@ class GuestModule
     public function checkLogin()
     {   
         
-        $auth =  $_SERVER['HTTP_AUTHORIZATION'];
+        $auth =  $_SERVER['HTTP_TOKEN'];
         if(isset($auth)) {
             return authcode($auth,'DECODE');
         }else

@@ -15,7 +15,7 @@ class UserModule
         // $dao = new MessageDao;
         // $server = new GuestModule;
 
-        // $auth =  $_SERVER['HTTP_AUTHORIZATION'];
+        // $auth =  $_SERVER['HTTP_TOKEN'];
         // $user = json_decode(authcode($auth,'DECODE'));
         // $userInfo['userID'] = $user->userId;
         // $userInfo['userName'] = $user['userName'];

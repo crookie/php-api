@@ -49,7 +49,7 @@
         ],
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': localStorage.getItem("auth")
+            'Token': localStorage.getItem("auth")
             // 'Access-Control-Allow-Origin':'*' 
         },
         params: {},

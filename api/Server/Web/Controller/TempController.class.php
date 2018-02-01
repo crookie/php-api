@@ -19,7 +19,7 @@ class TempController
         // $this->returnJson['statusCode'] = '120005';
         // // // $this->returnJson['code'] =  authcode($jon,'ecode','',3600);
         // $this->returnJson['dcode'] =  $server->checkLogin();
-        // $this->returnJson['auth'] =  $_SERVER['HTTP_AUTHORIZATION'];
+        // $this->returnJson['auth'] =  $_SERVER['HTTP_TOKEN'];
         // exitOutput($this->returnJson);
         if (!$server->checkLogin()) {
             $this->returnJson['statusCode'] = '120005';

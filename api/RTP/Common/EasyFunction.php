@@ -267,7 +267,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0)
 // 获取auth中的用户信息
 function getUserInfo($key = '')
 {
-    $user = json_decode(authcode($_SERVER['HTTP_AUTHORIZATION'],'DECODE'),true);
+    $user = json_decode(authcode($_SERVER['HTTP_TOKEN'],'DECODE'),true);
     if(empty($key)) {
     	return $user;
     } else {
