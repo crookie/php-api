@@ -58,10 +58,10 @@
         }).then(function(res) {
             if (res.statusCode === '000000') {
                 localStorage.setItem("auth", res.userInfo.auth);
-                delete res.userInfo.auth;
+                // delete res.userInfo.auth;
                 localStorage.setItem("user", JSON.stringify(res.userInfo));
-                let url = getQueryStringByName('returnurl') || 'index.html';
-                location.href = url;
+                // let url = getQueryStringByName('returnurl') || 'index.html';
+                location.href = 'index.html';
             } else {
                 alert(res.statusCode);
             }

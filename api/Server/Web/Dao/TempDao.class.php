@@ -12,12 +12,12 @@ class TempDao
     {
         $db = getDatabase();
 
-        $result['list'] = $db->prepareExecuteAll("SELECT SQL_CALC_FOUND_ROWS * FROM met_news WHERE met_news.lang = ? ORDER BY met_news.addtime DESC LIMIT ?,?", array(
+        $result['list'] = $db->prepareExecuteAll("SELECT SQL_CALC_FOUND_ROWS * FROM yiluo_news WHERE yiluo_news.lang = ? ORDER BY yiluo_news.addtime DESC LIMIT ?,?", array(
             $lang,
             ($pageNo-1) * $pageSize,
             $pageSize
         ));
-        $count = $db->prepareExecute("SELECT COUNT(met_news.id) AS count FROM met_news WHERE met_news.lang = ?", array($lang));
+        $count = $db->prepareExecute("SELECT COUNT(yiluo_news.id) AS count FROM yiluo_news WHERE yiluo_news.lang = ?", array($lang));
         $result['pageNo'] = ceil($pageNo);
         $result['pageSize'] = ceil($pageSize);
         $result['count'] = $count['count'];

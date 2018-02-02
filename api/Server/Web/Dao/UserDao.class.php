@@ -51,7 +51,7 @@ class UserDao
     public function checkUserExist(&$userName)
     {
         $db = getDatabase();
-        $result = $db->prepareExecute('SELECT met_user.id,met_user.username FROM met_user WHERE eo_user.username = ?;', array($userName));
+        $result = $db->prepareExecute('SELECT yiluo_user.id,yiluo_user.username FROM yiluo_user WHERE eo_user.username = ?;', array($userName));
 
         if (empty($result))
             return FALSE;

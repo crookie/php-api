@@ -43,7 +43,7 @@ class GuestDao
     {
         $db = getDatabase();
 
-        $result = $db->prepareExecute('SELECT * FROM met_user WHERE met_user.username = ?;', array($userName));
+        $result = $db->prepareExecute('SELECT * FROM yiluo_user WHERE yiluo_user.username = ?;', array($userName));
 
         if (empty($result))
             return TRUE;
@@ -60,7 +60,7 @@ class GuestDao
     {
         $db = getDatabase();
 
-        $result = $db->prepareExecute('SELECT * FROM met_user WHERE met_user.username = ?;', array($loginName));
+        $result = $db->prepareExecute('SELECT * FROM yiluo_user WHERE yiluo_user.username = ?;', array($loginName));
 
         if (empty($result))
             return FALSE;
@@ -77,7 +77,7 @@ class GuestDao
     {
         $db = getDatabase();
 
-        $result = $db->prepareExecute('SELECT * FROM met_user WHERE met_user.id = ?;', array($userId));
+        $result = $db->prepareExecute('SELECT * FROM yiluo_user WHERE yiluo_user.id = ?;', array($userId));
 
         if (empty($result))
             return FALSE;

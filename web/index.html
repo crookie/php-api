@@ -88,9 +88,8 @@
     // $(document).on('click', '#more', function() {
     //     getList(pageNo + 1);
     // });
-    let pageNo = 1;
-    let loading = false;
-
+    var pageNo = 1;
+    var loading = false;
     function getList(page) {
         $('#loading').show();
         API.post({
@@ -105,17 +104,17 @@
                 if (pageNo >= res.data.totalPage) {
                     loading = true;
                 }
-                let list = res.data.list;
-                let domHtml = '';
+                var list = res.data.list;
+                var domHtml = '';
                 if (list.length) {
-                    for (let item of list) {
-                        domHtml += `<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-                                        <div class="weui-media-box__hd weui-media-box__hd__thumb"></div>
-                                        <div class="weui-media-box__bd">
-                                            <h4 class="weui-media-box__title">` + item.title + `</h4>
-                                            <p class="weui-media-box__desc">` + item.description + `</p>
-                                        </div>
-                                    </a>`;
+                    for (var item of list) {
+                        domHtml += '<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">'+
+                                        '<div class="weui-media-box__hd weui-media-box__hd__thumb"></div>'+
+                                        '<div class="weui-media-box__bd">'+
+                                            '<h4 class="weui-media-box__title">' + item.title + '</h4>'+
+                                            '<p class="weui-media-box__desc">' + item.description + '</p>'+
+                                        '</div>'+
+                                    '</a>';
                     }
                 } else if (page == 1) {
                     domHtml = '<div class="weui-loadmore weui-loadmore_line"><span class="weui-loadmore__tips">暂无数据</span></div>';
@@ -127,7 +126,7 @@
         }, function(err) {
             console.log(err);
             page == 1 && $('#news').html('<div class="weui-loadmore weui-loadmore_line"><span class="weui-loadmore__tips">暂无数据</span></div>');
-        })
+        });
     }
     getList(pageNo);
     $("#tab3").pullToRefresh(function() {

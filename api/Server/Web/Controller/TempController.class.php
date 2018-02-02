@@ -41,9 +41,6 @@ class TempController
         if ($result) {
             // 获取项目列表成功
             $this->returnJson['statusCode'] = '000000';
-                        
-            $result['header'] = $_SERVER['HTTP_TOKEN'];
-            $result['cookie'] = $_COOKIE['PHPSESSID'];
             $this->returnJson['data'] = $result;
         } else {
             // 获取项目列表失败
